@@ -36,7 +36,7 @@ The goals / steps of this project are the following:
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+You're reading it! and here is a link to my [project code](https://github.com/Abhityagi16/SDC-Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 
@@ -113,26 +113,26 @@ My final model results were:
 
 I used an iterative approach for the optimization of validation accuracy:
 
-1. As an initial model architecture the original LeNet model from the course was chosen. In order to tailor the architecture for the traffic sign classifier usecase I adapted the input so that it accepts the colow images from the training set with shape (32,32,3) and I modified the number of outputs so that it fits to the 43 unique labels in the training set. The training accuracy was **83.5%** and my test traffic sign "pedestrians" was not correctly classified. 
-  (used hyper parameters: EPOCHS=10, BATCH_SIZE=128, learning_rate = 0,001, mu = 0, sigma = 0.1) 
+- As an initial model architecture the original LeNet model from the course was chosen. The training accuracy was **81.5%** 
+  (used hyper parameters: EPOCHS=10, BATCH_SIZE=128, learning_rate = 0.001, mu = 0, sigma = 0.1) 
 
-1. After adding the grayscaling preprocessing the validation accuracy increased to **91%** 
+- After adding the grayscaling preprocessing the validation accuracy increased to **91%** 
    (hyperparameter unmodified)
 
-1. The additional normalization of the training and validation data resulted in a minor increase of validation accuracy: **91.8%** (hyperparameter unmodified)
+- The additional normalization of the training and validation data resulted in a minor increase of validation accuracy: **91.8%** (hyperparameter unmodified)
 
-1. reduced learning rate and increased number of epochs. validation accuracy = **94%** 
+- reduced learning rate and increased number of epochs. validation accuracy = **94%** 
    (EPOCHS = 30, BATCH_SIZE = 128, rate = 0,0007, mu = 0, sigma = 0.1)
 
-1. overfitting. added dropout layer after relu of final fully connected layer: validation accuracy = **94,7%** 
+- overfitting. added dropout layer after relu of final fully connected layer: validation accuracy = **94,7%** 
    (EPOCHS = 30, BATCH_SIZE = 128, rate = 0,0007, mu = 0, sigma = 0.1)
 
-1. still overfitting. added dropout after relu of first fully connected layer. Overfitting reduced but still not good
+- still overfitting. added dropout after relu of first fully connected layer. Overfitting reduced but still not good
 
-1. added dropout before validation accuracy = 0.953 validation accuracy = **95,3%** 
+- added dropout validation accuracy = **95,3%** 
    (EPOCHS = 50, BATCH_SIZE = 128, rate = 0,0007, mu = 0, sigma = 0.1)
 
-1. further reduction of learning rate and increase of epochs. validation accuracy = **97,5%** 
+- further reduction of learning rate and increase of epochs. validation accuracy = **96.5%** 
    (EPOCHS = 150, BATCH_SIZE = 128, rate = 0,0006, mu = 0, sigma = 0.1)
 
 ### Test a Model on New Images
@@ -144,8 +144,7 @@ Here are six German traffic signs that I found on the web:
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8] ![alt text][image9]
 
-The "right-of-way at the next intersection" might be difficult to classify because the triangular shape is similiar to several other signs in the training set (e.g. "Child crossing" or "Slippery Road"). 
-Additionally, the "Stop" sign might be confused with the "No entry" sign because both signs have a round shape and a big red area.
+The "Stop" sign might be confused with the "No entry" sign because both signs have a round shape and a big red area.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
